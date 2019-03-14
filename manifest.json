@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Css3Animation",
+    "version": "0.1.1",
+    "description": "generate css animation code for your page",
+    
+    "icons": {
+        "16": "static/icon/16.png",
+        "32": "static/icon/32.png",
+        "48": "static/icon/48.png",
+        "128": "static/icon/128.png"
+    },
+    "background": {
+        "scripts": [ "static/background.js" ],
+        "persistent": false
+    },
+    "devtools_page": "static/devtools-background.html",
+    "content_scripts": [
+        {
+        "matches": ["<all_urls>","http://*/*","https://*/*"],
+        "js": ["static/content-script.js"]
+        }
+    ],
+    "default_locale":"zh_CN",
+    "web_accessible_resources":["static/*/*"],
+    "permissions": [
+        "debugger",
+        "notifications",
+        "<all_urls>" ,
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval' http://localhost:4000; object-src 'self'"
+}
